@@ -4,8 +4,9 @@ description: >-
   Premium React UI via HeroUI Pro + dual-axis router (route × style).
   Default style clean_product = Vault OTP / GhostKeys. Product with a public
   story AND a work surface MUST split landing `/` from desk `/desk` — never one
-  jammed page. Read real Navbar, FeatureCard, hero, footer sources. One Connect
-  on the desk navbar only. Files: STYLE_PRESETS.json, ROUTE_REGISTRY.json,
+  jammed page. Full locked job line on every page (`text-balance`, no chopped
+  `<br />`). Features is required and distinct from How it works. Read real
+  Navbar, FeatureCard, hero, footer sources. One Connect on the desk navbar only. Files: STYLE_PRESETS.json, ROUTE_REGISTRY.json,
   case-studies/vault-otp.md, case-studies/landing-and-desk.md. Surfaces A–H.
   Max 4 source reads. Triggers: design-promax, HeroUI, clean_product, Vault OTP,
   GhostKeys, landing page, dashboard, those cards, those buttons, route UI.
@@ -45,8 +46,8 @@ If the product has a public story **and** a place to do the work, ship **two rou
 
 | Route | Surface | Style | Job |
 |-------|---------|-------|-----|
-| `/` landing | A marketing | `marketing_campaign` | Hero, how it works, questions, footer. CTA opens the desk. |
-| `/desk` (or `/app`) | H wallet_dapp or C app | `clean_product` | Navbar + short job line + form. Work only. |
+| `/` landing | A marketing | `marketing_campaign` | Hero, **Features**, How it works, questions, footer. CTA opens the desk. |
+| `/desk` (or `/app`) | H wallet_dapp or C app | `clean_product` | Navbar + **the same full job line** + form. Work only. |
 
 Read **`case-studies/landing-and-desk.md`** whenever the user asks for a landing, a homepage, a dashboard, or “both”.
 
@@ -54,13 +55,15 @@ Read **`case-studies/landing-and-desk.md`** whenever the user asks for a landing
 
 | Piece | Source (read this) | Adapt |
 |-------|--------------------|--------|
-| Landing nav | `Marketing/hero-sections (4)__basic-navbar.tsx` | Brand + How it works + Questions. CTA = product verb → `/desk`. **No Connect. No Login.** |
-| Landing hero | `Marketing/hero-sections (4)__App.tsx` | `text-[clamp(40px,8vw,64px)] font-bold tracking-tighter` in **solid** `text-foreground`. Two pill CTAs: product verb → desk, How it works → `#how`. |
-| How it works | `AI/features (1)__feature-card.tsx` + `AI/features (1)__App.tsx` | Three FeatureCards. Human titles. |
+| Landing nav | `Marketing/hero-sections (4)__basic-navbar.tsx` | Brand + **Features** + How it works + Questions. CTA = product verb → `/desk`. **No Connect. No Login.** |
+| Landing hero | `Marketing/hero-sections (4)__App.tsx` | Full locked job line as **one** `h1`. `text-balance text-[clamp(40px,8vw,64px)] font-bold tracking-tighter text-foreground`. **No `<br />`.** Two pills: product verb → desk, How it works → `#how`. |
+| Features | `AI/features (1)__App.tsx` + `AI/features (1)__feature-card.tsx` | **Required.** Three category FeatureCards (what you already did / what it does / what it will not do). Heading: Features. `#features`. Not the same as How it works. |
+| How it works | `AI/features (1)__feature-card.tsx` | Three **step** FeatureCards. Heading: How it works. `#how`. |
 | Questions | HeroUI `Accordion` (or `Marketing/faqs (4)__App.tsx`) | Three real questions. |
-| Landing footer | `Marketing/footers (4)__App.tsx` | Brand + one line + **two real columns** (Product, Help). |
+| Landing footer | `Marketing/footers (4)__App.tsx` | Brand + one line + **two real columns** (Product, Help). Links include Features. |
 | Desk nav | `Application/navbars (3)__App.tsx` | Brand (links home) + **one** Connect on the right. |
-| Desk form / gates | `Application/authentication (24)__App.tsx` + `Application/cards (20)__action-card.tsx` | Short job line. Form card. Wrong-network gate only. |
+| Desk headline | same job line as landing | Full sentence, `text-balance`. Never a 3-word stub. |
+| Desk form / gates | `Application/authentication (24)__App.tsx` + `Application/cards (20)__action-card.tsx` | Form card. Wrong-network gate only. |
 
 ### Hard bans (the failures this skill exists to stop)
 
@@ -74,10 +77,15 @@ Do **not** do these in any theme:
 6. **Fake ACME chrome** — no newsletter block, no four columns of `#` links, no social icons to nowhere, no lorem footer.
 7. **How it works on the desk** — that section lives on the landing. Desk is the form.
 8. **Invented cards** — if the primitive is in `sources/`, read it and adapt. Do not draw a skinny Card and call it a hero.
+9. **Chopped hero** — never `<br />` a job line so the second line is three leftover words (“Claim the collateral.”). Never drop words from a locked job line (“the window” instead of “the payment window”).
+10. **Stub headlines on the desk** — never shorten the landing job line to “Finish the mint” / “Claim the collateral” on `/desk`. **Same full sentence on every page** that shows a hero. `text-balance`, no forced break.
+11. **Missing Features** — never ship a landing with only How it works. Features is its own section, from `AI/features (1)__App.tsx`, in the nav. How it works is the steps. Both.
 
 Connect copy on the desk: **Connect** (one word). Not “Connect MetaMask” repeated down the page.
 
 Landing CTA is the product verb (**Finish mint**, **Claim default**), not Connect.
+
+**Headline rule (strict):** If the product has a locked job line, paste it whole. Example: “The agent missed the payment window. Claim the collateral.” — one `h1`, `text-balance`, landing **and** desk.
 
 ---
 
@@ -120,11 +128,11 @@ Brutalism: sharp / `radius="none"` CTAs. Other themes: pills.
 
 ### Compose recipe (landing — `marketing_campaign`)
 
-Navbar (no Connect) → solid hero + two CTAs → How it works FeatureCards → Questions → human footer. Stop.
+Navbar (Features · How it works · Questions, no Connect) → solid **full** job-line hero + two CTAs → **Features** (3 category FeatureCards) → How it works (3 step FeatureCards) → Questions → human footer. Stop.
 
 ### Compose recipe (desk — `clean_product`)
 
-Navbar (brand + **one** Connect) → short job line → wrong-network gate only → form card → session list if work happened. Stop.
+Navbar (brand + **one** Connect) → **the same full job line** (`text-balance`) → wrong-network gate only → form card → session list if work happened. Stop.
 
 If the product has **no** public landing, desk may keep chips + three ActionCards from `vault-otp.md`. If it **has** a landing, do not repeat those cards on the desk.
 
@@ -147,3 +155,4 @@ React 18 + `@heroui/react` v2 + Tailwind 3 + Framer Motion + `@iconify/react` (`
 5. Never invent icons; never claim clean_product / case-studies are missing without checking both path layouts
 6. Never put architecture notes in product UI
 7. Never duplicate Connect. Never jam landing into the desk.
+8. Never skip Features. Never chop a locked job line. Same full headline on every page.

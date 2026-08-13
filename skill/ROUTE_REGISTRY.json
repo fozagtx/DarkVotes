@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "design-promax-route-registry",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Machine-readable template router + style presets. Paths relative to skill/sources/. Always apply default style preset after routing.",
   "protocol": {
     "before_write_ui": [
@@ -53,8 +53,9 @@
           ],
           "compose_order": [
             "navbar_no_connect",
-            "solid_hero",
-            "feature_cards",
+            "solid_hero_full_job_line",
+            "features",
+            "how_it_works",
             "faq",
             "human_footer"
           ],
@@ -64,8 +65,10 @@
             "connect_wallet_on_landing",
             "duplicate_connect",
             "faded_gradient_hero_type",
+            "chopped_three_word_hero_line",
             "fake_acme_footer",
-            "jamming_desk_form_on_landing"
+            "jamming_desk_form_on_landing",
+            "skipping_features_section"
           ],
           "quality_notes": "Landing-and-desk split: CTA is the product verb to /desk. Read case-studies/landing-and-desk.md"
         },
@@ -542,7 +545,9 @@
     "Landing how-it-works = 3 FeatureCards from AI/features (1)__feature-card.tsx",
     "Landing and desk are separate routes when both exist",
     "One Connect, desk navbar only; zero Connect on landing",
-    "Solid hero type; never gradient-clipped fade",
+    "Solid hero type; never gradient-clipped fade; never <br /> that leaves three leftover words",
+    "Full locked job line on landing AND desk; never a 3-word stub headline",
+    "Landing Features section required and distinct from How it works",
     "Logo is icon + name only"
   ],
   "keyword_index": {
@@ -550,6 +555,7 @@
     "hero": "A.landing",
     "homepage": "A.landing",
     "how it works": "A.landing",
+    "features": "A.landing",
     "footer": "A.landing",
     "pricing": "A.pricing",
     "login": "B.login_signup",

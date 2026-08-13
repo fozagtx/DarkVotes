@@ -14,13 +14,14 @@ When the user says “landing and dashboard”, “homepage and app”, “hero 
 | Layer | What we did |
 |-------|-------------|
 | **Two routes** | `/` tells the story. `/desk` does the job. Distinct chrome. |
-| **Landing nav** | HeroUI `Navbar` from `basic-navbar.tsx`. Icon + **name only**. Links: How it works, Questions. CTA is the product verb, not Connect. |
-| **Hero** | Clamp 40–64px, bold, tight tracking, **solid** foreground. One lede. Two pills: verb → desk, How it works → `#how`. |
-| **How it works** | `FeatureCard` from `AI/features (1)__feature-card.tsx` — icon, title, three short lines each. Grid of three. |
+| **Landing nav** | HeroUI `Navbar` from `basic-navbar.tsx`. Icon + **name only**. Links: **Features**, How it works, Questions. CTA is the product verb, not Connect. |
+| **Hero** | Clamp 40–64px, bold, tight tracking, **solid** foreground, **`text-balance`**, **no `<br />`**. The **full** locked job line. One lede. Two pills. |
+| **Features** | `AI/features (1)__App.tsx` pattern: three **category** FeatureCards (what you already did / what it does / what it will not). Required. `#features`. |
+| **How it works** | Three **step** FeatureCards. `#how`. Not a substitute for Features. |
 | **Questions** | Accordion. Three human answers. |
-| **Footer** | Brand + one line + Product / Help. Real in-page links. |
+| **Footer** | Brand + one line + Product / Help. Links include Features. |
 | **Desk nav** | `Application/navbars (3)__App.tsx`. Brand links home. **One** Connect on the right. |
-| **Desk body** | Short job line. Form. Wrong-network switch only. Session cards after work. |
+| **Desk headline** | **Same full job line as the landing.** `text-balance`. Never a 3-word stub. |
 
 ---
 
@@ -46,12 +47,19 @@ Keep live values (min fee, vault copy) **inside the form** where they are needed
 
 ---
 
-## Hero type (do not fade)
+## Hero type (do not fade, do not chop)
 
 From `Marketing/hero-sections (4)__App.tsx` take size and weight.
 
-**Keep:** `text-[clamp(40px,8vw,64px)] font-bold leading-[1.1] tracking-tighter text-foreground`  
-**Drop:** `bg-hero-section-title bg-clip-text text-transparent` and the white-to-gray fade. The headline must stay readable.
+**Keep:** `text-balance text-[clamp(40px,8vw,64px)] font-bold leading-[1.1] tracking-tighter text-foreground`  
+**Drop:** `bg-hero-section-title bg-clip-text text-transparent` and the white-to-gray fade.  
+**Drop:** `<br />` that parks three leftover words on line two.  
+**Drop:** shortening the locked line (“The agent missed the window.” / desk h1 “Claim the collateral”).
+
+Paste the **whole** job line. Use `text-balance` so it wraps as one headline. **Landing and desk use the same sentence.**
+
+Wrong: `The agent missed the window.<br />Claim the collateral.`  
+Right: `The agent missed the payment window. Claim the collateral.`
 
 ---
 
@@ -59,7 +67,7 @@ From `Marketing/hero-sections (4)__App.tsx` take size and weight.
 
 From `Marketing/footers (4)__App.tsx` take the layout (brand block + columns + bottom line).
 
-**Keep:** Brand, one sentence, two columns of **real** links (How it works, Open the desk, Questions).  
+**Keep:** Brand, one sentence, two columns of **real** links (Features, How it works, Open the desk, Questions).  
 **Drop:** Newsletter, fake Services/Legal/social to `#`, lorem, contract addresses.
 
 ---
@@ -68,11 +76,11 @@ From `Marketing/footers (4)__App.tsx` take the layout (brand block + columns + b
 
 ```
 1. Navbar (icon + name → `/`, Connect once)
-2. Short job title + one lede
+2. The same full job line as the landing (`text-balance`, no `<br />`)
 3. Wrong-network card only if connected on the wrong chain
 4. Form card if unlocked
 5. Session / status cards if work happened
-6. STOP — no how-it-works row, no marketing footer, no eng chips
+6. STOP — no features row, no how-it-works row, no marketing footer, no eng chips
 ```
 
 If there is **no** landing, fall back to `vault-otp.md` (chips + three ActionCards on the desk).
@@ -108,3 +116,6 @@ If there is **no** landing, fall back to `vault-otp.md` (chips + three ActionCar
 - Fake ACME footer and newsletter  
 - Repeating how-it-works on the desk after it already lives on the landing  
 - Glass blobs / IBM Plex / motion wallpaper when the user asked for the primitives, not a theme costume  
+- `<br />` that leaves a three-word second line  
+- Desk h1 shortened to three words while the landing has the full job line  
+- Landing with How it works but **no Features section** (Features is required and distinct)  

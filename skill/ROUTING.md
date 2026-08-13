@@ -55,7 +55,7 @@ Then pick **chrome**:
 | Feature grid | `AI/features (1)__feature-card.tsx` + `AI/features (1)__App.tsx` | `Marketing/banners (8)__*.tsx` | Dense tables |
 | Banner / promo | `Marketing/banners (8)__*.tsx` | — | Full dashboard layouts |
 
-**Compose order:** Navbar (no Connect) → solid hero + two CTAs → FeatureCards (how it works) → FAQ → human footer.  
+**Compose order:** Navbar (Features · How it works · Questions, no Connect) → solid full job-line hero + two CTAs → **Features** (category FeatureCards) → How it works (steps) → FAQ → human footer.  
 **CTA:** product verb → `/desk`. Never Connect on the landing.  
 **Hero type:** solid `text-foreground`. Never `bg-clip-text` fade.  
 **Footer:** brand + two real columns. No ACME newsletter.  

@@ -178,14 +178,15 @@
       "case_study": "case-studies/landing-and-desk.md",
       "compose_recipe": [
         "navbar_brand_name_only_no_connect",
-        "solid_hero_clamp_64_two_ctas",
-        "three_feature_cards_how_it_works",
+        "solid_hero_full_job_line_text_balance_no_br",
+        "features_three_category_feature_cards",
+        "how_it_works_three_step_feature_cards",
         "accordion_questions",
         "human_footer_two_real_columns",
         "cta_is_product_verb_to_desk"
       ],
       "inherits_button_matrix_from": "clean_product",
-      "notes": "Still pill CTAs and solar icons. Never put Connect on the landing. Never fade hero type. Never ship ACME newsletter footer. If the product also has work to do, pair with a /desk route (clean_product) — see landing-and-desk.md."
+      "notes": "Still pill CTAs and solar icons. Never put Connect on the landing. Never fade or <br />-chop hero type. Never skip Features. Features ≠ How it works. Same full job line on landing and desk. Never ship ACME newsletter footer. If the product also has work to do, pair with a /desk route (clean_product) — see landing-and-desk.md."
     },
     "dense_admin": {
       "id": "dense_admin",
