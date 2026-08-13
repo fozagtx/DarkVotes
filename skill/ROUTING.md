@@ -55,7 +55,11 @@ Then pick **chrome**:
 | Feature grid | `AI/features (1)__feature-card.tsx` + `AI/features (1)__App.tsx` | `Marketing/banners (8)__*.tsx` | Dense tables |
 | Banner / promo | `Marketing/banners (8)__*.tsx` | — | Full dashboard layouts |
 
-**Compose order:** Hero → features/pricing → FAQ → footer.  
+**Compose order:** Navbar (no Connect) → solid hero + two CTAs → FeatureCards (how it works) → FAQ → human footer.  
+**CTA:** product verb → `/desk`. Never Connect on the landing.  
+**Hero type:** solid `text-foreground`. Never `bg-clip-text` fade.  
+**Footer:** brand + two real columns. No ACME newsletter.  
+**If the product also has work:** also ship `/desk` using surface H/C. Read `case-studies/landing-and-desk.md`.  
 **Icons:** `solar:*-bold-duotone` for feature tiles; keep marketing airy.
 
 ---
@@ -203,7 +207,8 @@ When building **forms**, pick field patterns from the **same surface** as the pa
 ## Step 4 — Quality bar (Vault OTP / GhostKeys / `clean_product`)
 
 **Full layout recipe (not just a checklist):**  
-`case-studies/vault-otp.md` + style id **`clean_product`** in `STYLE_PRESETS.json`.
+`case-studies/vault-otp.md` + style id **`clean_product`** in `STYLE_PRESETS.json`.  
+If landing **and** desk: also `case-studies/landing-and-desk.md`.
 
 That case study defines:
 
@@ -226,6 +231,8 @@ Before shipping UI, checklist:
 8. **Copy:** human product language; no architecture footnotes  
 9. **States:** empty / loading / error / wrong-network each have a card  
 10. **One primary CTA** per viewport region  
+11. **Landing ≠ desk** when both exist; **one Connect** on the desk navbar only  
+12. **Solid hero type**; logo is icon + name only  
 
 ---
 
@@ -233,15 +240,16 @@ Before shipping UI, checklist:
 
 ```
 What is the main screen?
-  marketing → A + hero App.tsx
+  marketing / homepage / how it works → A + hero App + FeatureCard; CTA to /desk; no Connect
   login/signup/unlock → B + authentication App.tsx
-  logged-in product → C + sidebar OR navbar App
+  logged-in product / desk → C navbar OR H dapp (one Connect in nav, form only)
   chat/AI → D + prompt-containers App.tsx
   shop → E + product-list or checkout App
   analytics → F + KPI + graphs
   multi-step → G + forms + steppers
-  wallet/crypto dapp → H compose (auth + action-card + security-settings)
+  wallet/crypto dapp → H compose (navbar + form; landing is a separate A route)
 Then: open ONLY the Primary files → adapt → stop.
+If the product has a story AND a tool: two routes. Read landing-and-desk.md.
 ```
 
 ---

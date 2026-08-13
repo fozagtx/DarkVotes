@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "design-promax-route-registry",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Machine-readable template router + style presets. Paths relative to skill/sources/. Always apply default style preset after routing.",
   "protocol": {
     "before_write_ui": [
@@ -44,23 +44,30 @@
         "landing": {
           "primary": [
             "Marketing/hero-sections (4)__App.tsx",
+            "Marketing/hero-sections (4)__basic-navbar.tsx",
             "AI/features (1)__feature-card.tsx",
-            "Marketing/faqs (4)__App.tsx",
             "Marketing/footers (4)__App.tsx"
           ],
           "secondary": [
-            "Marketing/banners (8)__App.tsx"
+            "Marketing/faqs (4)__App.tsx"
           ],
           "compose_order": [
-            "hero",
-            "features",
+            "navbar_no_connect",
+            "solid_hero",
+            "feature_cards",
             "faq",
-            "footer"
+            "human_footer"
           ],
           "avoid": [
             "Application/sidebars",
-            "Application/tables"
-          ]
+            "Application/tables",
+            "connect_wallet_on_landing",
+            "duplicate_connect",
+            "faded_gradient_hero_type",
+            "fake_acme_footer",
+            "jamming_desk_form_on_landing"
+          ],
+          "quality_notes": "Landing-and-desk split: CTA is the product verb to /desk. Read case-studies/landing-and-desk.md"
         },
         "pricing": {
           "primary": [
@@ -482,20 +489,24 @@
             "AI/features (1)__feature-card.tsx"
           ],
           "compose_order": [
-            "topbar_brand_plus_wallet",
-            "short_hero_human_copy",
-            "three_action_cards",
-            "gate_connect_network_unlock",
+            "navbar_brand_plus_one_connect",
+            "short_job_line",
+            "wrong_network_gate_only",
             "main_form_and_list_cards",
+            "no_how_it_works_on_desk",
             "no_tech_footer"
           ],
           "avoid": [
             "eng_jargon_ui",
             "contract_address_in_footer",
             "random_marketing_purple_ai_landing",
-            "full_chat_shell"
+            "full_chat_shell",
+            "duplicate_connect",
+            "logo_subtitle",
+            "marketing_hero_as_desk_body",
+            "chain_name_chips"
           ],
-          "quality_notes": "Vault OTP quality bar: human copy, solar icons from opened sources, empty/error/wrong-network states"
+          "quality_notes": "If a landing exists, follow case-studies/landing-and-desk.md. Connect once in the navbar. Human copy. Wrong-network is Switch, not a second Connect."
         }
       },
       "style_preset": "clean_product",
@@ -527,11 +538,19 @@
     "Cards: border-small border-default-200 shadow-small; icon tiles primary-50",
     "Buttons radius-full; Inputs variant bordered with solar startContent",
     "No tech footers; human copy only",
-    "Feature row = 3 ActionCards from action-card.tsx pattern"
+    "Feature row = 3 ActionCards from action-card.tsx pattern on desk-only products",
+    "Landing how-it-works = 3 FeatureCards from AI/features (1)__feature-card.tsx",
+    "Landing and desk are separate routes when both exist",
+    "One Connect, desk navbar only; zero Connect on landing",
+    "Solid hero type; never gradient-clipped fade",
+    "Logo is icon + name only"
   ],
   "keyword_index": {
     "landing": "A.landing",
     "hero": "A.landing",
+    "homepage": "A.landing",
+    "how it works": "A.landing",
+    "footer": "A.landing",
     "pricing": "A.pricing",
     "login": "B.login_signup",
     "signup": "B.login_signup",
@@ -552,6 +571,7 @@
     "wizard": "G.multistep",
     "onboarding": "G.multistep",
     "wallet": "H.vault_or_dapp_shell",
+    "desk": "H.vault_or_dapp_shell",
     "vault": "H.vault_or_dapp_shell",
     "dapp": "H.vault_or_dapp_shell",
     "otp": "H.vault_or_dapp_shell",

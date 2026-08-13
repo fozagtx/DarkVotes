@@ -123,7 +123,7 @@ Fonts: **IBM Plex Sans** + **IBM Plex Mono** for codes/addresses.
 | `clean_product` | Default product / dapp / vault | This case study |
 | `clean_product_compact` | Mobile-first / dense phone UI | Tighter gap-4, hide feature row |
 | `trust_green` | Finance / security products | Same structure; force green primary tokens |
-| `marketing_campaign` | Landing only | More sections + footer; still action/feature cards |
+| `marketing_campaign` | Landing only | More sections + footer; still feature cards; **no Connect**; pair with `/desk` if work exists (`landing-and-desk.md`) |
 | `dense_admin` | Tables / analytics | Sidebar + KPIs; keep card borders |
 
 All flavors share: **full-radius CTAs, bordered inputs, solar icons, no eng footers.**
@@ -138,3 +138,7 @@ All flavors share: **full-radius CTAs, bordered inputs, solar icons, no eng foot
 - Wrong-network as plain text without Switch CTA  
 - Feature wall of 6+ cards  
 - Mixing checkout field chrome with chat shells  
+- **Jamming this desk recipe onto a marketing landing** — if the product also has a homepage, split routes and follow `landing-and-desk.md`  
+- **A second Connect** under the navbar Connect  
+- **Job subtitle beside the logo**  
+- **Faded gradient-clipped hero type**  

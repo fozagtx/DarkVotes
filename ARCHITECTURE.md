@@ -9,6 +9,7 @@
 | Wrong template for the product | Keyword match only on category (AI/App/Marketing) | **Surface A–H** + **route id** |
 | Glob paths that don’t resolve | `sidebar*.tsx` in docs | **Exact paths** in JSON |
 | Eng jargon in UI | No copy rule | Quality bar + surface H avoid list |
+| Landing jammed into desk | One compose for everything | **landing-and-desk.md** — two routes, one Connect |
 | Harness can’t machine-route | Markdown-only tables | `ROUTE_REGISTRY.json` |
 | Install layout differs | Root vs `skill/` entry | Protocol uses paths relative to `skill/` |
 
@@ -126,3 +127,4 @@ Fails if any `primary` / `secondary` / `field_router` path is missing.
 
 - Bump `ROUTE_REGISTRY.json` `version` on route changes
 - Keep SKILL description in sync with new surfaces
+- Landing + desk split lives in `case-studies/landing-and-desk.md` (v2.3.0)

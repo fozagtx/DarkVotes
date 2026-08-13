@@ -98,7 +98,9 @@
       "copy_rules": [
         "Human product language only",
         "No ciphertext/Polybase/calldata/architecture footnotes",
-        "No contract address footers unless user asked"
+        "No contract address footers unless user asked",
+        "No chain-name or truncated-address chips in chrome",
+        "Logo is icon + name only"
       ],
       "anti_patterns": [
         "Purple full-bleed AI marketing for product apps",
@@ -106,7 +108,13 @@
         "Fake KPIs",
         "Raw lists without cards",
         "Default square buttons when pill CTAs expected",
-        "More than one primary filled CTA per card"
+        "More than one primary filled CTA per card",
+        "Landing and desk jammed on one page",
+        "Second Connect button when navbar already has Connect",
+        "Job subtitle beside the logo",
+        "Gradient-clipped faded hero type",
+        "Engineering chips (chain name, truncated vault, Pre-flight)",
+        "Fake ACME footer / newsletter / social to #"
       ]
     },
     "clean_product_compact": {
@@ -156,19 +164,28 @@
       "id": "marketing_campaign",
       "label": "Marketing campaign",
       "when": "Landing, pricing, launch — not logged-in product shell",
-      "keywords": ["landing", "marketing site", "pricing page", "campaign", "homepage"],
+      "keywords": ["landing", "marketing site", "pricing page", "campaign", "homepage", "how it works", "hero"],
       "must_read": [
         "Marketing/hero-sections (4)__App.tsx",
-        "AI/features (1)__feature-card.tsx",
-        "Application/cards (20)__action-card.tsx"
+        "Marketing/hero-sections (4)__basic-navbar.tsx",
+        "AI/features (1)__feature-card.tsx"
       ],
       "optional_read": [
-        "Marketing/pricing (8)__App.tsx",
+        "Marketing/footers (4)__App.tsx",
         "Marketing/faqs (4)__App.tsx",
-        "Marketing/footers (4)__App.tsx"
+        "Marketing/pricing (8)__App.tsx"
+      ],
+      "case_study": "case-studies/landing-and-desk.md",
+      "compose_recipe": [
+        "navbar_brand_name_only_no_connect",
+        "solid_hero_clamp_64_two_ctas",
+        "three_feature_cards_how_it_works",
+        "accordion_questions",
+        "human_footer_two_real_columns",
+        "cta_is_product_verb_to_desk"
       ],
       "inherits_button_matrix_from": "clean_product",
-      "notes": "Still pill CTAs and solar icons; more vertical sections OK."
+      "notes": "Still pill CTAs and solar icons. Never put Connect on the landing. Never fade hero type. Never ship ACME newsletter footer. If the product also has work to do, pair with a /desk route (clean_product) — see landing-and-desk.md."
     },
     "dense_admin": {
       "id": "dense_admin",
@@ -201,7 +218,8 @@
     "Default → clean_product",
     "User says like Vault OTP / those cards / those buttons → clean_product + read case-studies/vault-otp.md",
     "Surface H (wallet_dapp) → clean_product or trust_green only (never marketing_campaign)",
-    "Surface A landing → marketing_campaign but keep pill buttons + feature cards",
+    "Surface A landing → marketing_campaign + case-studies/landing-and-desk.md; CTA to /desk; zero Connect on landing",
+    "If product has landing AND work surface → two routes; never jam; theme does not collapse the split",
     "Surface D chat → chat_soft (not random purple landing)",
     "Surface F dense → dense_admin",
     "Efficient: clean_product_core 3 files first; +1 route App only if needed; max 4",
